@@ -1,0 +1,1 @@
+docker run -d --restart=always --name=pim --log-opt max-size=20m --log-opt max-file=5 -p 3333:3333 -p 443:443 pim

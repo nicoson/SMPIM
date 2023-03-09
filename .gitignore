@@ -1,0 +1,9 @@
+client/node_modules/
+client/bower_components/
+client/dev/
+client/dist/
+client/package-lock.json
+server/node_modules/
+server/package-lock.json
+db/
+pim.tar

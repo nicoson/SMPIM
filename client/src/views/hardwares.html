@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base target="_blank" />
+  <title>闪马智能产品信息系统</title>
+  <link rel="stylesheet" href="./stylesheet/layout.css">
+  <link rel="stylesheet" href="./stylesheet/hardwares.css">
+  <link href="./libs/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="supremind" viewBox="0 0 195 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Supremind</title>
+          <g id="工时" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="编组备份-4" transform="translate(0.000000, 0.000000)" fill="#1E66EB">
+                  <polygon id="Fill-1" points="44.5485 0 44.5865 74.968 64.1345 74.967 63.8725 34.643 97.9875 96.746 108.4765 96.746 132.4705 51.473 113.8745 51.473 104.1045 69.257 102.5415 69.257 64.1475 0"></polygon>
+                  <polygon id="Fill-2" points="179.128 45.1016 97.437 45.1016 88.942 30.1396 187.018 30.1576"></polygon>
+                  <polygon id="Fill-3" points="160.8465 0 141.5615 0.018 128.5005 23.808 160.8465 23.808"></polygon>
+                  <polygon id="Fill-4" points="38.1779 28.4618 38.1779 48.3728 31.3639 54.5538 31.3639 73.9908 41.2819 81.3388 81.7789 81.3388 90.5949 96.7458 33.2919 96.7458 12.0789 78.0208 12.0789 48.3908"></polygon>
+                  <polygon id="Fill-5" points="141.2863 74.9679 161.1223 74.9679 161.1223 51.4729 141.2863 51.4729"></polygon>
+                  <polygon id="Fill-6" points="123.3786 81.3384 114.8386 96.7464 165.2546 96.7464 175.4486 104.8054 175.4486 137.1744 167.2846 143.8114 167.2846 159.9304 194.4566 142.6264 194.4566 100.3014 174.3456 81.3384"></polygon>
+                  <polygon id="Fill-7" points="141.2223 159.9309 160.9133 159.9309 160.9133 103.1169 141.2223 103.1169"></polygon>
+                  <polygon id="Fill-8" points="44.3123 115.0739 63.5973 115.0739 63.5973 103.1259 44.3123 103.1259"></polygon>
+                  <polygon id="Fill-9" points="74.442 125.2575 78.355 121.4455 4.623 121.4455 2.84217094e-14 127.2725 52.086 127.2725 48.28 131.4205 134.851 137.5635 134.85 121.4455"></polygon>
+                  <polygon id="Fill-10" points="45.3225 143.8119 63.6045 159.9309 63.6005 143.8119"></polygon>
+                  <polygon id="Fill-11" points="69.9753 143.8119 70.0513 159.9309 134.8513 159.9309 134.8513 143.8119"></polygon>
+              </g>
+          </g>
+      </symbol>
+      <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+      </symbol>
+      <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+      </symbol>
+      <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+      </symbol>
+      <symbol id="table" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+      </symbol>
+      <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+      </symbol>
+      <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+      </symbol>
+      <symbol id="collection" viewBox="0 0 16 16">
+        <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+      </symbol>
+      <symbol id="calendar3" viewBox="0 0 16 16">
+        <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+        <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </symbol>
+      <symbol id="chat-quote-fill" viewBox="0 0 16 16">
+        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
+      </symbol>
+      <symbol id="cpu-fill" viewBox="0 0 16 16">
+        <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+        <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
+      </symbol>
+      <symbol id="gear-fill" viewBox="0 0 16 16">
+        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+      </symbol>
+      <symbol id="speedometer" viewBox="0 0 16 16">
+        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
+      </symbol>
+      <symbol id="toggles2" viewBox="0 0 16 16">
+        <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z"/>
+        <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z"/>
+        <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
+      </symbol>
+      <symbol id="tools" viewBox="0 0 16 16">
+        <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </symbol>
+      <symbol id="geo-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+      </symbol>
+      <symbol id="trash-fill" viewBox="0 0 16 16">
+        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+      </symbol>
+  </svg>
+
+  <main class="d-flex flex-nowrap">
+    <div id = "navbar" class="sidebar flex-shrink-0 p-3 bg-white" style="width: 280px;"></div>
+    
+    <div class="b-example-divider b-example-vr"></div>
+
+    <div class="main-content container-xxxl">
+      <div class="row p-3">
+        <h3>硬件管理</h3>
+      </div>
+      <div class="row ps-3">
+        <div class="col">
+          <button id="new_hardware" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_edit" data-modeltype="new">新增硬件设备</button>
+        </div>
+      </div>
+
+      <div class="row p-4 table-container">
+        <table id="list_table" class="table table-hover align-middle">
+          <thead class="table-secondary">
+            <tr><th>硬件名称</th><th>硬件型号</th><th>硬件类型</th><th>CPU</th><th>内存</th><th>硬盘</th><th>网卡</th><th>GPU</th><th>更新日期</th><th>操作</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal_detail" class="modal fade">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal_title_detail">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row p-3">
+            <table id="detail_table" class="subtable table table-bordered border-Secondary align-middle detail-table">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal_edit" class="modal fade">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modal_title_new">新建硬件</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="m-2">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3 row">
+                    <label for="id_name" class="col-sm-4 col-form-label">硬件名称</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_name" placeholder="超聚变1卡GPU服务器（2023款）">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="id_model" class="col-sm-4 col-form-label">硬件型号</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_model" placeholder="SMG-2012-A">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="id_model_full" class="col-sm-4 col-form-label">内部硬件型号</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_model_full" placeholder="SMG-2012-0064SSD004000-4310-R50">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="id_year" class="col-sm-4 col-form-label">上市时间</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_year" placeholder="2023-01">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <img id="id_img_poster" src="" class="img-thumbnail" alt="...">
+                </div>
+              </div>
+              <!-- <div class="mb-3 row">
+                <label for="id_name" class="col-sm-2 col-form-label">硬件名称</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_name" placeholder="超聚变1卡GPU服务器（2023款）">
+                    </div>
+                    <label for="id_model" class="col-sm-2 col-form-label">硬件型号</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_model" placeholder="SMG-2012-A">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_model_full" class="col-sm-2 col-form-label">内部硬件型号</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_model_full" placeholder="SMG-2012-0064SSD004000-4310-R50">
+                </div>
+              </div> -->
+              <div class="mb-3 row">
+                <label for="id_server_type" class="col-sm-2 col-form-label">整机类型</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_server_type" placeholder="机架式服务器">
+                    </div>
+                    <label for="id_server_size" class="col-sm-2 col-form-label">服务器尺寸</label>
+                    <div class="col-sm-2">
+                      <select class="form-select" class="form-control" id="id_server_size" aria-label="Default select example">
+                        <option value="1U" selected>1U</option>
+                        <option value="2U">2U</option>
+                        <option value="4U">4U</option>
+                        <option value="6U">6U</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="mb-3 row">
+                <label for="id_cpu" class="col-sm-2 col-form-label">CPU</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_cpu" placeholder="Intel Xeon Silver 4310 处理器，12核/24线程，主频2.1GHz，功耗120W">
+                    </div>
+                    <label for="id_cpu_num" class="col-sm-2 col-form-label">数量</label>
+                    <div class="col-sm-2">
+                      <input type="number" class="form-control" id="id_cpu_num" value="2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_gpu" class="col-sm-2 col-form-label">GPU 图形加速卡</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_gpu" placeholder="NVIDIA Tesla T4">
+                    </div>
+                    <label for="id_gpu_num" class="col-sm-2 col-form-label">数量</label>
+                    <div class="col-sm-2">
+                      <input type="number" class="form-control" id="id_gpu_num" value="0">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_npu" class="col-sm-2 col-form-label">NPU 网络处理器</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="id_npu" placeholder="NPU处理器，40 TOPS">
+                    </div>
+                    <label for="id_npu_num" class="col-sm-2 col-form-label">数量</label>
+                    <div class="col-sm-2">
+                      <input type="number" class="form-control" id="id_npu_num" value="0">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="id_memory" class="col-sm-2 col-form-label">内存大小</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_memory" placeholder="64GB">
+                    </div>
+                    <label for="id_memory_modal" class="col-sm-2 col-form-label">内存规格</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_memory_modal" placeholder="DDR4 3200MHz RDIMM">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_storage_sys" class="col-sm-2 col-form-label">系统硬盘</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_storage_sys" placeholder="2块480GB SSD，支持RAID1（系统盘）">
+                    </div>
+                    <label for="id_storage_data" class="col-sm-2 col-form-label">数据硬盘</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id="id_storage_data" placeholder="2块1.92TB SSD，支持RAID1（数据盘）">
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="mb-3 row">
+                <label for="id_storage_notes" class="col-sm-2 col-form-label">系统存储说明</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_storage_notes" placeholder="整机最大可配置12块2.5寸或3.5寸热插拔硬盘，支持直通、RAID 0/1/10/5/50/6/60等多种存储方案">
+                </div>
+              </div>
+              
+              <div class="mb-3 row">
+                <label for="id_network_interface" class="col-sm-2 col-form-label">网络接口</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_network_interface" placeholder="标配2个千兆以太网电口 \n标配1个千兆RJ45管理网口，支持IPMI设备远程控制管理">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_display_interface" class="col-sm-2 col-form-label">视频接口</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_display_interface" placeholder="标配1个VGA接口">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_other_interface" class="col-sm-2 col-form-label">其他接口</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_other_interface" placeholder="TF卡接口 1个，RS-485接口 1个，串口 1个">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_usb" class="col-sm-2 col-form-label">USB接口</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_usb" placeholder="标配4个USB接口，两个前置，两个后置">
+                </div>
+              </div>
+              
+              <div class="mb-3 row">
+                <label for="id_power_supply" class="col-sm-2 col-form-label">电源</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_power_supply" placeholder="2个900W高效白金热插拔电源，支持1+1冗余，电压范围100-240V/50Hz">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_power" class="col-sm-2 col-form-label">整机功率</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_power" placeholder="≤800W">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_operation_temperature" class="col-sm-2 col-form-label">工作温度</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_operation_temperature" placeholder="5℃～45℃">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_storage_temperature" class="col-sm-2 col-form-label">贮存温度</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_storage_temperature" placeholder="-10℃~55℃">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_operation_humidity" class="col-sm-2 col-form-label">工作湿度</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_operation_humidity" placeholder="10%~90%无冷凝">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_storage_humidity" class="col-sm-2 col-form-label">贮存湿度</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_storage_humidity" placeholder="25%~50%无冷凝">
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="id_chassis_size" class="col-sm-2 col-form-label">机箱尺寸</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_chassis_size" placeholder="86.1mm(高)×447mm(宽)×790mm(深)">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_package_size" class="col-sm-2 col-form-label">外包装尺寸</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_package_size" placeholder="1035mm(长)×642mm(宽)×255mm(高)">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_package" class="col-sm-2 col-form-label">包装规格</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_package" placeholder="双层纸质中性包装">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_shipping_list" class="col-sm-2 col-form-label">出货清单</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_shipping_list" value="产品保修卡、合格证、产品标签、售后服务标签、服务器装箱单、产品快速使用手册">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_net_weight" class="col-sm-2 col-form-label">设备重量</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_net_weight" placeholder="38kg(满配，不含导轨)">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_accessory" class="col-sm-2 col-form-label">配件</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_accessory" placeholder="1副免工具安装上架导轨">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_lead_time" class="col-sm-2 col-form-label">供货周期</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_lead_time" placeholder="4周">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_warranty" class="col-sm-2 col-form-label">质保</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_warranty" placeholder="3年">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="id_poster" class="col-sm-2 col-form-label">外观图片</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="id_poster" placeholder="http://......">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+              <button id="module_edit_close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+              <button id="module_edit_submit" type="button" class="btn btn-primary" onclick="updatehardware(event)">确定</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./javascript/config.js"></script>
+  <script src="./javascript/popperjs_v2.11.6.js"></script>
+  <script src="./libs/js/bootstrap.min.js"></script>
+  <script src="./javascript/hardwares_core.js"></script>
+  <script src="./javascript/hardwares.js"></script>
+</body>
+</html>
