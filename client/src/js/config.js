@@ -3,8 +3,8 @@
 let FILEHOST = '';
 
 // test env
-let APIHOST = 'http://100.100.156.99:3000';   // dev env
-// let APIHOST = 'http://100.100.142.132:3333'; // prd env
+// let APIHOST = 'http://100.100.156.99:3000';   // dev env
+let APIHOST = 'http://100.100.142.132:3333'; // prd env
 // let FILEHOST = 'http://100.100.62.163:3333';
 
 if(sessionStorage.islogin == undefined || sessionStorage.islogin != 'true') {
@@ -73,7 +73,7 @@ function initNav(expandnum = 0) {
     nav[expandnum].expanded = true;
     let navbartmp = `<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
                         <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#supremind"/></svg>
-                        <span class="fs-5 fw-semibold">闪马产品信息系统</span>
+                        <span class="fs-5 fw-semibold">产品信息系统</span>
                     </a>
                     <ul class="list-unstyled ps-0">`;
     for(let group of nav) {

@@ -46,6 +46,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 table {
     th {
         font-size: 14px;
+        // text-align: center;
     }
     td {
         font-size: 12px;
@@ -57,36 +58,16 @@ table {
     width: 1800px;
 
     table {
-
-        th:nth-child(1) {
-            width: 80px;
-        }
-        th:nth-child(2) {
-            width: 80px;
-        }
-        th:nth-child(3) {
-            width: 100px;
-        }
-        th:nth-child(4) {
-            width: 150px;
-        }
-        th:nth-child(5) {
-            width: 80px;
-        }
-        th:nth-child(6) {
-            width: 120px;
-        }
-        th:nth-child(7) {
-            width: 120px;
-        }
-        th:nth-child(8) {
-            width: 80px;
-        }
-        th:nth-child(9) {
-            width: 60px;
-        }
-        th:nth-child(10) {
-            width: 100px;
+        td {
+            height: 100px;
+            overflow-y: auto;
+            img {
+                max-height: 100%;
+            }
         }
     }
+}
+
+#id_img_poster {
+    max-height: 100%;
 }

@@ -47,6 +47,12 @@ window.onload = function() {
 })();
 
 
+function getRole() {
+    let role = JSON.parse(sessionStorage.role);
+    let subrole = role.find(e=>{return e.groupid == "road"});
+    return subrole == 'undefined' ? null : subrole.edit;
+}
+
 function updateModal(event) {
     console.log(event.target);
     listTable.updateData();
@@ -63,23 +69,33 @@ function updatehardware(event) {
 }
 
 function downloadxlsx(event) {
-    let tb = document.querySelector('table');
-    let wb = XLSX.utils.book_new();
-    let ws = XLSX.utils.table_to_sheet(tb);
-    XLSX.utils.book_append_sheet(wb, ws, "城市交通");
-    XLSX.writeFile(wb, "bookmarks.xlsx");
+    listTable.exportXlsx();
 }
 
-function tableToExcel(table, name) {
-    var template = `<html><head><meta charset="UTF-8"></head><body><table>${document.getElementById(table).innerHTML}</table></body></html>`
+function tableToExcel(tableid, name) {
+    var template = `<html><head><meta charset="UTF-8"></head><body><table>${document.getElementById(tableid).innerHTML}</table></body></html>`
     var blob = new Blob([template], {
         type: "application/vnd.ms-excel;charset=charset=utf-8"
     });
     saveAs(blob, name);
-}
 
-function getRole() {
-    let role = JSON.parse(sessionStorage.role);
-    let subrole = role.find(e=>{return e.groupid == "road"});
-    return subrole == 'undefined' ? null : subrole.edit;
+    // let table = new TableExport(document.getElementById("list_table"));
+    // TableExport(document.getElementById("list_table"), {
+    //     headers: true,                      // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
+    //     footers: true,                      // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
+    //     formats: ["xlsx", "csv", "txt"],    // (String[]), filetype(s) for the export, (default: ['xlsx', 'csv', 'txt'])
+    //     filename: "id",                     // (id, String), filename for the downloaded file, (default: 'id')
+    //     bootstrap: false,                   // (Boolean), style buttons using bootstrap, (default: true)
+    //     exportButtons: true,                // (Boolean), automatically generate the built-in export buttons for each of the specified formats (default: true)
+    //     position: "bottom",                 // (top, bottom), position of the caption element relative to table, (default: 'bottom')
+    //     ignoreRows: null,                   // (Number, Number[]), row indices to exclude from the exported file(s) (default: null)
+    //     ignoreCols: null,                   // (Number, Number[]), column indices to exclude from the exported file(s) (default: null)
+    //     trimWhitespace: true,               // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
+    //     RTL: false,                         // (Boolean), set direction of the worksheet to right-to-left (default: false)
+    //     sheetname: "id"                     // (id, String), sheet name for the exported spreadsheet, (default: 'id')
+    //   });
+    //   var exportData = table.getExportData();
+
+    //   var xlsxData = exportData.list_table.xlsx; // Replace with the kind of file you want from the exportData
+    //   table.export2file(xlsxData.data, xlsxData.mimeType, xlsxData.filename, xlsxData.fileExtension, xlsxData.merges, xlsxData.RTL, xlsxData.sheetname)
 }

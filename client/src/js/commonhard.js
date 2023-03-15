@@ -63,20 +63,16 @@ function updatehardware(event) {
 }
 
 function downloadxlsx(event) {
-    let tb = document.querySelector('table');
-    let wb = XLSX.utils.book_new();
-    let ws = XLSX.utils.table_to_sheet(tb);
-    XLSX.utils.book_append_sheet(wb, ws, "城市交通");
-    XLSX.writeFile(wb, "bookmarks.xlsx");
+    listTable.exportXlsx();
 }
 
-function tableToExcel(table, name) {
-    var template = `<html><head><meta charset="UTF-8"></head><body><table>${document.getElementById(table).innerHTML}</table></body></html>`
-    var blob = new Blob([template], {
-        type: "application/vnd.ms-excel;charset=charset=utf-8"
-    });
-    saveAs(blob, name);
-}
+// function tableToExcel(table, name) {
+//     var template = `<html><head><meta charset="UTF-8"></head><body><table>${document.getElementById(table).innerHTML}</table></body></html>`
+//     var blob = new Blob([template], {
+//         type: "application/vnd.ms-excel;charset=charset=utf-8"
+//     });
+//     saveAs(blob, name);
+// }
 
 function getRole() {
     let role = JSON.parse(sessionStorage.role);

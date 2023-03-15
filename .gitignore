@@ -4,6 +4,7 @@ client/dev/
 client/dist/
 client/package-lock.json
 server/node_modules/
+server/public/
 server/package-lock.json
 db/
 pim.tar

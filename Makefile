@@ -1,9 +1,12 @@
 build:
+	rm -rf ./server/public
+	cp -r ./client/dev ./server/public
 	rm -f pim.tar
 	docker build -t pim .
+	docker tag pim pim:v0.7
 	docker save pim > pim.tar
 
-dev:
+deliver:
 	scp pim.tar smai@100.100.142.132:~/nixiaohui
 	
 Deploy:

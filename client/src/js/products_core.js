@@ -214,20 +214,25 @@ class ListTable {
     }
 
     async updateImgInfo(uid) {
-        let item = await this.getDetailData(uid);
-        if(item) {
-            this.data.info.poster = item.info.poster;
-            document.getElementById('id_img_poster').innerHTML = `<img src="${this.data.info.poster}" class="img-thumbnail" alt="...">`;
-        } else {
+        if(uid == 'null') { // 用户选了”无硬件“
+            this.data.info.poster = '';
             document.getElementById('id_img_poster').innerHTML = `<div><p>选择硬件配置后展示产品图片</p></div>`;
+        } else {
+            let item = await this.getDetailData(uid);
+            if(item) {
+                this.data.info.poster = item.info.poster;
+                document.getElementById('id_img_poster').innerHTML = `<img src="${this.data.info.poster}" class="img-thumbnail" alt="...">`;
+            } else {
+                document.getElementById('id_img_poster').innerHTML = `<div><p>选择硬件配置后展示产品图片</p></div>`;
+            }
         }
     }
     
     // 生成主表
     mainTable_gen(ele, data) {
         // let tmp = this.mainTable_gen_core(data, {js_order: true,js_branch: true,js_prd_type: true,js_status: true,js_delist_date: true,js_catagory: true,js_name: true,js_prd_branch: true,js_model: true,js_brief: true,js_specs: true,js_materials: true,js_poster: true,js_poster_anyshare: true,js_packing_list: true,js_certification: true,js_performance: true,js_hardware: true,js_unit: true,js_price: true,js_marketing_price: true,js_business_offer: true,js_option: true,js_notes: true,js_update: true,js_operation: true});
-        let tmp = this.mainTable_gen_core(data, {js_order: true,js_branch: true,js_prd_type: true,js_status: true,js_delist_date: true,js_catagory: true,js_name: true,js_prd_branch: true,js_model: true,js_brief: true,js_specs: false,js_materials: true,js_poster: true,js_poster_anyshare: true,js_packing_list: false,js_certification: true,js_performance: false,js_hardware: false,js_unit: true,js_price: true,js_marketing_price: true,js_business_offer: true,js_option: true,js_notes: true,js_update: true,js_operation: this.editable});
-        // let tmp = this.mainTable_gen_core(data, {js_order: false,js_branch: false,js_prd_type: false,js_status: false,js_delist_date: false,js_catagory: false,js_name: true,js_prd_branch: true,js_model: true,js_brief: false,js_specs: false,js_materials: false,js_poster: true,js_poster_anyshare: false,js_packing_list: false,js_certification: false,js_performance: false,js_hardware: false,js_unit: false,js_price: true,js_marketing_price: true,js_business_offer: true,js_option: true,js_notes: true,js_update: true,js_operation: this.editable});
+        let tmp = this.mainTable_gen_core(data, {js_order: true,js_branch: true,js_prd_type: true,js_status: true,js_delist_date: true,js_catagory: true,js_name: true,js_prd_branch: true,js_model: true,js_brief: true,js_specs: false,js_materials: false,js_poster: true,js_poster_anyshare: false,js_packing_list: false,js_certification: true,js_performance: false,js_hardware: false,js_unit: true,js_price: true,js_marketing_price: false,js_business_offer: true,js_option: true,js_notes: true,js_update: true,js_operation: this.editable});
+        // let tmp = this.mainTable_gen_core(data, {js_order: true,js_branch: false,js_prd_type: false,js_status: false,js_delist_date: false,js_catagory: false,js_name: true,js_prd_branch: true,js_model: true,js_brief: false,js_specs: false,js_materials: false,js_poster: true,js_poster_anyshare: false,js_packing_list: false,js_certification: false,js_performance: false,js_hardware: false,js_unit: false,js_price: true,js_marketing_price: true,js_business_offer: true,js_option: true,js_notes: true,js_update: true,js_operation: this.editable});
         ele.innerHTML = tmp;
         let btn = document.querySelectorAll('.js-btn-delete');
         for(let i=0; i<btn.length; i++) {
@@ -285,7 +290,7 @@ class ListTable {
         if(col.js_unit)             tmp += `<th style="width: 80px;">产品销售单位</th>`;
         if(col.js_price)            tmp += `<th style="width: 120px;">产品目录价<br />（单位：元）</th>`;
         if(col.js_marketing_price)  tmp += `<th style="width: 120px;">销售底价<br />（单位：元）</th>`;
-        if(col.js_business_offer)   tmp += `<th style="width: 120px;">商务低价<br />（单位：元）</th>`;
+        if(col.js_business_offer)   tmp += `<th style="width: 120px;">产品兜底价<br />（单位：元）</th>`;
         if(col.js_option)           tmp += `<th style="width: 80px;">选配说明</th>`;
         if(col.js_notes)            tmp += `<th style="width: 200px;">其他说明</th>`;
         if(col.js_update)           tmp += `<th style="width: 80px;">更新时间</th>`;
@@ -306,7 +311,13 @@ class ListTable {
             if(col.js_brief)            tmp += `<td><p class="mb-0">${data[i].info.brief ? data[i].info.brief.replaceAll('\n', '<br />') : '-'}</p></td>`;
             if(col.js_specs)            tmp += `<td><p class="mb-0">${data[i].info.specs || '-'}</p></td>`;
             if(col.js_materials)        tmp += `<td><p class="mb-0">${data[i].info.materials || '-'}</p></td>`;
-            if(col.js_poster)           tmp += `<td><img class="mb-0 img-thumbnail" src="${data[i].info.poster || '-'}"></td>`;
+            if(col.js_poster) {
+                if(data[i].info.poster) {
+                    tmp += `<td style="text-align:center;"><img class="mb-0 img-thumbnail" src="${data[i].info.poster || '-'}"></td>`;
+                } else {
+                    tmp += `<td>-</td>`;
+                }
+            }
             if(col.js_poster_anyshare)  tmp += `<td><p class="mb-0">${data[i].info.poster_anyshare || '-'}</p></td>`;
             if(col.js_packing_list)     tmp += `<td><p class="mb-0">${data[i].info.packing_list ? data[i].info.packing_list.replaceAll('\n', '<br />') : '-'}</p></td>`;
             if(col.js_certification)    tmp += `<td><p class="mb-0">${data[i].info.certification ? data[i].info.certification.replaceAll('\n', '<br />') : '-'}</p></td>`;
@@ -354,82 +365,10 @@ class ListTable {
     
     // 查看应用软件的详细信息
     async gen_subtable(data) {
-        let hardware = null;
-        let hardware_brief = '';
-        let hardware_img = '';
-        let packing_list = '';
-        let specs = '';
-        let option = '';
-        let title = ['一','二','三','四','五'];
-        if(data.info.hardware != 'null') {
-            hardware = await this.getDetailData(data.info.hardware);
-            if(hardware) {
-                hardware_brief = hardware.brief;
-                hardware_img = hardware.info.poster;
-                packing_list = hardware.info.package_size + '<br />' + hardware.info.shipping_list;
-            }
-        }
-
-        if(data.info.refer != null && data.info.refer != 'null') {
-            let software = await this.getDetailData(data.info.refer);
-            specs += `${title.shift()}. 软件功能：<br />`;
-            if(data.info.refer_module == 'all') {
-                for(let i=0; i<software.modules.length; i++) {
-                    specs += `${i+1}. ${software.modules[i].name} <br \>`;
-                    for(let j=0; j<software.modules[i].component.length; j++) {
-                        specs += `${i+1}.${j+1} ${software.modules[i].component[j].name}：<br \>`;
-                        for(let k=0; k<software.modules[i].component[j].subcomponent.length; k++) {
-                            specs += `${software.modules[i].component[j].subcomponent[k].description ? software.modules[i].component[j].subcomponent[k].description.replaceAll('\\n', '<br />') : '-'}<br \>`;
-                        }
-                    }
-                }
-            } else if(data.info.refer_module != 'null'){
-                for(let i=0; i<software.modules.length; i++) {
-                    if(software.modules[i].code == data.info.refer_module) {
-                        option = software.modules[i].option == "1" ? "必选":"可选";
-                        for(let j=0; j<software.modules[i].component.length; j++) {
-                            specs += `${j+1} ${software.modules[i].component[j].name}：<br \>`;
-                            for(let k=0; k<software.modules[i].component[j].subcomponent.length; k++) {
-                                specs += `${software.modules[i].component[j].subcomponent[k].description}<br \>`;
-                            }
-                        }
-                        break;
-                    }
-                }
-            }
-            specs += '<br \><br \>';
-        }
-        
-        
-        if(data.info.hardware != "null" && hardware != null) {
-            specs += `${title.shift()}. 硬件参数：<br />`;
-            specs += `
-                CPU：${hardware.info.CPU_num} * ${hardware.info.CPU} <br />
-                内存：${hardware.info.memory}, ${hardware.info.memory_model} <br />
-                硬盘：${hardware.info.storage_sys}, ${hardware.info.storage_data} <br />
-                网卡：${hardware.info.network_interface} <br />
-                GPU：${hardware.info.GPU_num} * ${hardware.info.GPU} <br />
-                机型：${hardware.info.server_size} <br />
-                重量：${hardware.info.net_weight} <br />
-                功率：${hardware.info.power} <br />
-                电源：${hardware.info.power_supply} <br />
-                `;
-
-                specs += `<br \><br \>`;
-        }
-
-        if(data.info.performance != null) {
-            specs += `${title.shift()}. 分析性能：<br />
-                ${data.info.performance.replaceAll('\n', '<br />')} <br /><br />`;
-        }
-
-        if(data.info.specs != null) {
-            specs += `${title.shift()}. 规格说明：<br />
-            ${data.info.specs.replaceAll('\n', '<br />')}`;
-        }
+        let info = await this.getInfo(data);
         
         let tmp = '';
-        if(hardware_img != '') tmp += `<tr><td>产品图片</td><td><img src="${hardware_img}" class="img" alt="..."></td></tr>`;
+        if(info.hardware_img != '') tmp += `<tr><td>产品图片</td><td><img src="${info.hardware_img}" class="img" alt="..."></td></tr>`;
         tmp += `
                 <tr><td>关联业务</td><td>${data.info.branch || '-'}</td></tr>
                 <tr><td>产品形态</td><td>${data.info.prd_type || '-'}</td></tr>
@@ -440,22 +379,169 @@ class ListTable {
                 <tr><td>产品分支版本</td><td>${data.info.prd_branch || '-'}</td></tr>
                 <tr><td>产品型号</td><td>${data.info.model || '-'}</td></tr>
                 <tr><td>产品简介</td><td>${data.info.brief ? data.info.brief.replaceAll('\n', '<br />') : '-'}</td></tr>
-                <tr><td>规格参数</td><td>${specs || '-'}</td></tr>
+                <tr><td>规格参数</td><td>${info.specs || '-'}</td></tr>
                 <tr><td>产品彩页链接</td><td>${data.info.materials || '-'}</td></tr>
                 <tr><td>图片链接</td><td>${data.info.poster_anyshare || '-'}</td></tr>
-                <tr><td>出货规范</td><td>${packing_list || '-'}</td></tr>
+                <tr><td>出货规范</td><td>${info.packing_list || '-'}</td></tr>
                 <tr><td>国标/行标认证</td><td>${data.info.certification ? data.info.certification.replaceAll('\n', '<br />') : '-'}</td></tr>
                 <tr><td>性能规格</td><td>${data.info.performance ? data.info.performance.replaceAll('\n', '<br />') : '-'}</td></tr>
-                <tr><td>配套硬件</td><td>${hardware_brief || '-'}</td></tr>
+                <tr><td>配套硬件</td><td>${info.hardware_brief || '-'}</td></tr>
                 <tr><td>产品销售单价</td><td>${data.info.unit || '-'}</td></tr>
                 <tr><td>产品目录价<br />（单位：元）</td><td>${data.info.price || '-'}</td></tr>
-                <tr><td>销售底价<br />（单位：元）</td><td>${data.info.marketing_price || '-'}</td></tr>
-                <tr><td>商务低价<br />（单位：元）</td><td>${data.info.business_offer || '-'}</td></tr>
-                <tr><td>选配说明</td><td>${option || '-'}</td></tr>
+                <tr><td>产品兜底价<br />（单位：元）</td><td>${data.info.business_offer || '-'}</td></tr>
+                <tr><td>选配说明</td><td>${info.option || '-'}</td></tr>
                 <tr><td>其他说明</td><td>${data.info.notes ? data.info.notes.replaceAll('\n', '<br />') : '-'}</td></tr>
                 <tr><td>更新时间</td><td>${data.update ? new Date(data.update).toLocaleString().slice(0,18) : '-'}</td></tr>
             `;
         
         document.querySelector("#detail_table tbody").innerHTML = tmp;
+        return tmp;
+    }
+
+    async getInfo(data) {
+        let hardware = null;
+        let info = {
+            hardware_brief: '',
+            hardware_img: '',
+            packing_list: '',
+            specs: '',
+            option: ''
+        };
+        let title = ['一','二','三','四','五'];
+        if(data.info.hardware != 'null') {
+            hardware = await this.getDetailData(data.info.hardware);
+            if(hardware) {
+                info.hardware_brief = hardware.brief;
+                info.hardware_img = hardware.info.poster;
+                info.packing_list = hardware.info.package_size + '<br />' + hardware.info.shipping_list;
+            }
+        }
+
+        if(data.info.refer != null && data.info.refer != 'null') {
+            let software = await this.getDetailData(data.info.refer);
+            info.specs += `${title.shift()}. 软件功能：<br />`;
+            if(data.info.refer_module == 'all') {
+                for(let i=0; i<software.modules.length; i++) {
+                    info.specs += `${i+1}. ${software.modules[i].name} <br \>`;
+                    for(let j=0; j<software.modules[i].component.length; j++) {
+                        info.specs += `${i+1}.${j+1} ${software.modules[i].component[j].name}：<br \>`;
+                        for(let k=0; k<software.modules[i].component[j].subcomponent.length; k++) {
+                            info.specs += `${software.modules[i].component[j].subcomponent[k].description ? software.modules[i].component[j].subcomponent[k].description.replaceAll('\\n', '<br />') : '-'}<br \>`;
+                        }
+                    }
+                }
+            } else if(data.info.refer_module != 'null'){
+                for(let i=0; i<software.modules.length; i++) {
+                    if(software.modules[i].code == data.info.refer_module) {
+                        info.option = software.modules[i].option == "1" ? "必选":"可选";
+                        for(let j=0; j<software.modules[i].component.length; j++) {
+                            info.specs += `${j+1} ${software.modules[i].component[j].name}：<br \>`;
+                            for(let k=0; k<software.modules[i].component[j].subcomponent.length; k++) {
+                                info.specs += `${software.modules[i].component[j].subcomponent[k].description}<br \>`;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            info.specs += '<br \><br \>';
+        }
+
+        if(data.info.specs != null) {
+            info.specs += `${title.shift()}. 规格说明：<br />
+                    ${data.info.specs.replaceAll('\n', '<br />')}`;
+            info.specs += `<br \><br \><br \>`;
+        }
+        
+        if(data.info.hardware != "null" && hardware != null) {
+            info.specs += `${title.shift()}. 硬件参数：<br />`;
+            info.specs += `
+                CPU：${hardware.info.CPU_num} * ${hardware.info.CPU} <br />
+                内存：${hardware.info.memory}, ${hardware.info.memory_model} <br />
+                硬盘：${hardware.info.storage_sys}, ${hardware.info.storage_data} <br />
+                网卡：${hardware.info.network_interface} <br />
+                GPU：${hardware.info.GPU_num} * ${hardware.info.GPU} <br />
+                机型：${hardware.info.server_size} <br />
+                重量：${hardware.info.net_weight} <br />
+                功率：${hardware.info.power} <br />
+                电源：${hardware.info.power_supply} <br />
+                `;
+            info.specs += `<br \><br \>`;
+        }
+
+        if(data.info.performance != null) {
+            info.specs += `${title.shift()}. 分析性能：<br />
+                ${data.info.performance.replaceAll('\n', '<br />')}`;
+        }
+        return info;
+    }
+
+    async exportXlsx() {
+        document.querySelector('#downloadexcel').disabled = true;
+        document.querySelector('#downloadexcel').innerHTML = '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> 下载中... ...';
+
+        let data = await this.getItemList();
+        let tmp = `<thead class="table-secondary"><tr>
+                        <th style="width: 100px;">产品形态</th>
+                        <th style="width: 50px;">状态</th>
+                        <th style="width: 80px;">下架时间</th>
+                        <th style="width: 80px;">产品类别</th>
+                        <th style="width: 80px;">产品名称</th>
+                        <th style="width: 120px;">产品型号</th>
+                        <th style="width: 200px;">规格参数</th>
+                        <th style="width: 120px;">产品彩页链接</th>
+                        <th style="width: 150px;">产品图片</th>
+                        <th style="width: 200px;">出货规范</th>
+                        <th style="width: 200px;">国标/行标认证</th>
+                        <th style="width: 80px;">产品销售单位</th>
+                        <th style="width: 120px;">产品目录价<br />（单位：元）</th>
+                        <th style="width: 120px;">产品兜底价<br />（单位：元）</th>
+                        <th style="width: 80px;">选配说明</th>
+                        <th style="width: 200px;">其他说明</th>
+                    </tr></thead><tbody>`;
+
+        for(let i=0; i<data.length; i++) {
+            let info = await this.getInfo(data[i]);
+
+            tmp += `<tr data-software-id = "${data[i].uid}" data-bs-toggle="modal" data-bs-target="#modal_detail">
+                        <td><p class="mb-0">${data[i].info.prd_type || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].info.status || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].info.delist_date || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].info.catagory || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].name || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].info.model || '-'}</p></td>
+                        <td><p class="mb-0">${info.specs || '-'}</p></td>
+                        <td><p class="mb-0">${data[i].info.materials || '-'}</p></td>`;
+
+            if(info.hardware_img) {
+                tmp += `<td style="text-align:center;"><img class="mb-0 img-thumbnail" src="${info.hardware_img || '-'}"></td>`;
+            } else {
+                tmp += `<td>-</td>`;
+            }
+            
+            tmp += `<td><p class="mb-0">${info.packing_list ? info.packing_list.replaceAll('\n', '<br />') : '-'}</p></td>
+                    <td><p class="mb-0">${data[i].info.certification ? data[i].info.certification.replaceAll('\n', '<br />') : '-'}</p></td>
+                    <td><p class="mb-0">${data[i].info.unit || '-'}</p></td>
+                    <td><p class="mb-0">${data[i].info.price || '-'}</p></td>
+                    <td><p class="mb-0">${data[i].info.business_offer || '-'}</p></td>
+                    <td><p class="mb-0">${info.option || '-'}</p></td>
+                    <td><p class="mb-0">${data[i].info.notes ? data[i].info.notes.replaceAll('\n', '<br />') : '-'}</p></td>`
+            tmp += `</tr>`;
+        }
+        
+        tmp += `</tbody>`
+
+        let tb = document.createElement('table');
+        tb.innerHTML = tmp;
+        let wb = XLSX.utils.book_new();
+        let ws = XLSX.utils.table_to_sheet(tb);
+        ws["!cols"] = [{width:15},{width:10},{width:10},{width:30},{width:30},{width:20},{width:50},{width:20},{width:20},{width:30},{width:30},{width:10},{width:10},{width:10},{width:10},{width:30}];
+        XLSX.utils.book_append_sheet(wb, ws, this.type_name);
+        XLSX.writeFile(wb, `闪马产品目录(${new Date().toLocaleDateString().replaceAll('/','-')}).xlsx`);
+
+        document.querySelector('#downloadexcel').disabled = false;
+        document.querySelector('#downloadexcel').innerHTML = '下载';
+
+        // return tmp;
     }
 }

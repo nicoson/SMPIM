@@ -62,6 +62,7 @@ class ListTable {
     initEditModal(data=null) {
         this.data = data;
         document.getElementById('modal_title_new').innerHTML = "编辑";
+        document.getElementById('id_img_poster').src = data.info.poster;
         document.getElementById('id_name').value = data.name;
         document.getElementById('id_model').value = data.model;
         document.getElementById('id_model_full').value = data.info.model_full;
@@ -196,16 +197,18 @@ class ListTable {
         let tmp = '';
         for(let i=0; i<data.length; i++) {
             tmp += `<tr data-software-id = "${data[i].uid}" data-bs-toggle="modal" data-bs-target="#modal_detail">
-                        <td><p class="mb-0">${data[i].name}</p></td>
-                        <td><p class="mb-0">${data[i].model}</p></td>
-                        <td><p class="mb-0">${data[i].brief}</p></td>
-                        <td><p class="mb-0">${data[i].info.CPU}</p></td>
-                        <td><p class="mb-0">${data[i].info.memory}，${data[i].info.memory_modal}</p></td>
-                        <td><p class="mb-0">${data[i].info.storage_sys}，${data[i].info.storage_sys}</p></td>
-                        <td><p class="mb-0">${data[i].info.network_interface}</p></td>
-                        <td><p class="mb-0">${data[i].info.GPU || '-'}</p></td>
-                        <td><p class="mb-0">${data[i].update ? new Date(data[i].update).toLocaleString().slice(0,18) : '-'}</p></td>
-                        <td><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit" data-software-id = "${data[i].uid}" data-modeltype="edit">编辑</button> <button class="btn btn-danger btn-sm js-btn-delete" data-bs-toggle="modal" data-bs-target="#" data-software-id="${data[i].uid}"">删除</button></td>
+                        <td style="width: 50px;"><p class="mb-0">${i+1}</p></td>
+                        <td style="width: 100px;"><p class="mb-0">${data[i].name || '-'}</p></td>
+                        <td style="width: 80px;"><p class="mb-0">${data[i].model || '-'}</p></td>
+                        <td style="width: 150px;"><p class="mb-0">${data[i].brief || '-'}</p></td>
+                        <td style="width: 200px; text-align:center;"><img src="${data[i].info.poster}" class="img-thumbnail" alt="..."></td>
+                        <td style="width: 120px;"><p class="mb-0">${data[i].info.CPU || '-'}</p></td>
+                        <td style="width: 120px;"><p class="mb-0">${data[i].info.memory || ''}，${data[i].info.memory_modal || ''}</p></td>
+                        <td style="width: 200px;"><p class="mb-0">${data[i].info.storage_sys || '-'}，${data[i].info.storage_sys || '-'}</p></td>
+                        <td style="width: 150px;"><p class="mb-0">${data[i].info.network_interface || '-'}</p></td>
+                        <td style="width: 60px;"><p class="mb-0">${data[i].info.GPU || '-'}</p></td>
+                        <td style="width: 100px;"><p class="mb-0">${data[i].update ? new Date(data[i].update).toLocaleString().slice(0,18) : '-'}</p></td>
+                        <td style="width: 100px;"><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit" data-software-id = "${data[i].uid}" data-modeltype="edit">编辑</button> <button class="btn btn-danger btn-sm js-btn-delete" data-bs-toggle="modal" data-bs-target="#" data-software-id="${data[i].uid}"">删除</button></td>
                     </tr>`
         }
         ele.innerHTML = tmp;

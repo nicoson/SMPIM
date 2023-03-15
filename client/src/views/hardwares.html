@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <base target="_blank" />
   <title>闪马智能产品信息系统</title>
+  <link rel="icon" href="/imgs/favicon/favicon.png" type="image/png">
   <link rel="stylesheet" href="./stylesheet/layout.css">
   <link rel="stylesheet" href="./stylesheet/hardwares.css">
   <link href="./libs/css/bootstrap.min.css" rel="stylesheet">
@@ -92,7 +93,7 @@
   </svg>
 
   <main class="d-flex flex-nowrap">
-    <div id = "navbar" class="sidebar flex-shrink-0 p-3 bg-white" style="width: 280px;"></div>
+    <div id = "navbar" class="sidebar flex-shrink-0 p-3 bg-white"></div>
     
     <div class="b-example-divider b-example-vr"></div>
 
@@ -109,7 +110,7 @@
       <div class="row p-4 table-container">
         <table id="list_table" class="table table-hover align-middle">
           <thead class="table-secondary">
-            <tr><th>硬件名称</th><th>硬件型号</th><th>硬件类型</th><th>CPU</th><th>内存</th><th>硬盘</th><th>网卡</th><th>GPU</th><th>更新日期</th><th>操作</th></tr>
+            <tr><th>序号</th><th>硬件名称</th><th>硬件型号</th><th>硬件类型</th><th>设备图片</th><th>CPU</th><th>内存</th><th>硬盘</th><th>网卡</th><th>GPU</th><th>更新日期</th><th>操作</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -212,6 +213,8 @@
                         <option value="2U">2U</option>
                         <option value="4U">4U</option>
                         <option value="6U">6U</option>
+                        <option value="盒子">盒子</option>
+                        <option value="前端设备">前端设备</option>
                       </select>
                     </div>
                   </div>
@@ -425,7 +428,7 @@
 
 
   <script src="./javascript/config.js"></script>
-  <script src="./javascript/popperjs_v2.11.6.js"></script>
+  <script src="./libs/js/popperjs_v2.11.6.js"></script>
   <script src="./libs/js/bootstrap.min.js"></script>
   <script src="./javascript/hardwares_core.js"></script>
   <script src="./javascript/hardwares.js"></script>

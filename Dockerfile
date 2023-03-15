@@ -7,4 +7,4 @@ COPY ./server /workspace/server/
 EXPOSE 80 3000 3333 443
 
 WORKDIR /workspace/server
-CMD ["npm", "prd"]
+CMD ["npm", "run", "prd"]

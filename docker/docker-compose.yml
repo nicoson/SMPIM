@@ -1,0 +1,21 @@
+version: '1.0'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: chanpinbu
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo
+    name: pim-mongo
+    restart: always
+    ports:
+      - 37017:27017
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: chanpinbu
+      ME_CONFIG_MONGODB_ADMINPASSWORD: chanpinbudemima
+      ME_CONFIG_MONGODB_URL: mongodb://root:chanpinbu@mongo:37017/
